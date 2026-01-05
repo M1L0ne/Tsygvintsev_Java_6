@@ -60,9 +60,21 @@ public class Main {
                         System.out.println();
                         break;
                     case 5:
+                        try {
+                            System.out.println("Чтение значений из аннотации @Two над классом TwoTask:");
+                            TwoTask.printTwoValues(TwoTask.class);
+                        } catch (Exception e) {
+                            System.err.println("Ошибка: " + e.getMessage());
+                        }
                         System.out.println();
                         break;
                     case 6:
+                        try {
+                            System.out.println("Анализ аннотации @Cache над классом Task6:");
+                            CacheTask.printCacheAreas(CacheTask.class);
+                        } catch (Exception e) {
+                            System.err.println("Ошибка: " + e.getMessage());
+                        }
                         System.out.println();
                         break;
                     case 7:
