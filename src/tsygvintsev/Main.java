@@ -6,7 +6,6 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     static void main(String[] args) {
-        int choice;
         int taskNum;
 
         System.out.println("Для перехода обратно в меню и выхода вводите '-1'");
@@ -37,10 +36,10 @@ public class Main {
                         break;
                     case 3:
                         try {
-                            StringTask task3 = new StringTask();
+                            ToStringTask task3 = new ToStringTask();
                             System.out.println("Объект: " + task3);
                             System.out.println("Результат Task3.toString(obj):");
-                            System.out.println(StringTask.toString(task3));
+                            System.out.println(ToStringTask.toString(task3));
                         } catch (Exception e) {
                             System.err.println("Ошибка: " + e.getMessage());
                         }
@@ -78,9 +77,11 @@ public class Main {
                         System.out.println();
                         break;
                     case 7:
+                        System.out.println("7 задание вызывается в классе ValidateJUnitTest (применяется JUnit)");
                         System.out.println();
                         break;
                     case 8:
+                        System.out.println("8 задание вызывается в классе InvokeJUnitTest (применяется JUnit)");
                         System.out.println();
                         break;
                     case -1:
@@ -98,24 +99,4 @@ public class Main {
         } while (taskNum != -1);
 
     }
-
-    public static List<Integer> readIntegerList() {
-        System.out.println("Введите кол-во чисел в массиве: ");
-        int arrayLen = sc.nextInt();
-        System.out.println("Вводите элементы массива через Enter:");
-        List<Integer> list = new ArrayList<>();
-        sc.nextLine();
-        for (int i = 0; i < arrayLen; i++) {
-            list.add(sc.nextInt());
-        }
-        return list;
-    }
-
-    public static void printIntegerList(List<Integer> list) {
-        for (Integer element : list) {
-            System.out.print(element + " ");
-        }
-        System.out.println();
-    }
-
 }

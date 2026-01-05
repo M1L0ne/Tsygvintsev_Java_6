@@ -7,7 +7,7 @@ import java.lang.reflect.Field;
  * Используется для формирования строкового представления с фильтрацией полей.
  */
 @ToString
-public class StringTask {
+public class ToStringTask {
     private String name = "Alice";
     private int age = 30;
 

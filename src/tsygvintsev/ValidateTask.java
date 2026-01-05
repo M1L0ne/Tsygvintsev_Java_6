@@ -37,4 +37,31 @@ public class ValidateTask {
             System.out.println((i + 1) + ". " + classes[i].getSimpleName());
         }
     }
+
+    /**
+     * Возвращает массив классов из аннотации {@link Validate}.
+     * <p>
+     * Если аннотация отсутствует или массив пуст — выбрасывает исключение.
+     *
+     * @param clazz класс для анализа
+     * @return непустой массив классов
+     * @throws IllegalArgumentException если clazz == null, аннотация отсутствует или массив пуст
+     */
+    public static Class<?>[] getValidationClasses(Class<?> clazz) {
+        if (clazz == null) {
+            throw new IllegalArgumentException("Класс не может быть null");
+        }
+
+        if (!clazz.isAnnotationPresent(Validate.class)) {
+            throw new IllegalArgumentException("Аннотация @Validate отсутствует");
+        }
+
+        Class<?>[] classes = clazz.getAnnotation(Validate.class).value();
+
+        if (classes.length == 0) {
+            throw new IllegalArgumentException("Массив классов в @Validate пуст");
+        }
+
+        return classes;
+    }
 }

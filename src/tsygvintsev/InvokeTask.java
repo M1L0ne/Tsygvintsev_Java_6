@@ -8,6 +8,11 @@ import java.lang.reflect.Method;
  */
 
 public class InvokeTask {
+    /**
+     * Переменные для теста {@link InvokeJUnitTest}
+     */
+    private boolean initialized = false;
+    private int validationCount = 0;
 
     /**
      * Метод, помеченный аннотацией {@link Invoke}.
@@ -15,6 +20,7 @@ public class InvokeTask {
      */
     @Invoke
     public void init() {
+        initialized = true;
         System.out.println("init() выполнен");
     }
 
@@ -30,7 +36,19 @@ public class InvokeTask {
      */
     @Invoke
     public void validate() {
+        validationCount++;
         System.out.println("validate() выполнен");
+    }
+
+    /**
+     * Геттеры для теста {@link InvokeJUnitTest}
+     */
+    public boolean isInitialized() {
+        return initialized;
+    }
+
+    public int getValidationCount() {
+        return validationCount;
     }
 
     /**
